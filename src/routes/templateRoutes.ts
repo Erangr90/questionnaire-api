@@ -13,7 +13,7 @@ import {
 
 const router = express.Router();
 
-router.route("/summary").get(protect, superAdmin, templatesSummary);
+router.route("/summary").get(protect, admin, templatesSummary);
 router.route("/user").get(protect, admin, getTemplatesByUser);
 router.route("/search").get(protect, superAdmin, searchByName);
 router.route("/").post(protect, admin, createTemplate);

@@ -1,4 +1,4 @@
-import { Request, response, Response } from "express";
+import { Request, Response } from "express";
 import asyncHandler from "../middlewares/asyncHandler";
 import QuestionnaireTemp from "../models/QuestionnaireTemp";
 import { questionnaireSchema } from "../dto/questionnaire.dto";
@@ -767,8 +767,15 @@ export const updateTempName = asyncHandler(
  *         description: Server error occurred while fetching templates summary
  */
 export const templatesSummary = asyncHandler(
-  async (req: Request, res: Response) => {
-    const templates = await QuestionnaireTemp.find({}).select("name _id");
+  async (req: AuthenticatedRequest, res: Response) => {
+    let templates = [];
+    if (req.user?.role === "SUPER_ADMIN") {
+      templates = await QuestionnaireTemp.find({}).select("name _id");
+    } else {
+      templates = await QuestionnaireTemp.find({ user: req.user?.id }).select(
+        "name _id"
+      );
+    }
     const summary = [];
     for (const temp of templates) {
       let obj = {
