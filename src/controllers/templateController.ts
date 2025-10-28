@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import { Request, response, Response } from "express";
 import asyncHandler from "../middlewares/asyncHandler";
 import QuestionnaireTemp from "../models/QuestionnaireTemp";
 import { questionnaireSchema } from "../dto/questionnaire.dto";
@@ -8,6 +8,7 @@ import { topicSchema } from "../dto/topic.dto";
 import { Template } from "../types/template";
 import { ICategory } from "../models/QuestionnaireTemp";
 import { IUser } from "../models/User";
+import Questionnaire from "../models/Questionnaire";
 
 interface AuthenticatedRequest extends Request {
   user?: IUser;
@@ -724,5 +725,69 @@ export const updateTempName = asyncHandler(
     existing.name = trimmedName;
     existing.save();
     return res.status(200).json({ message: "השינוי בוצע בהצלחה" });
+  }
+);
+
+/**
+ * @swagger
+ * /api/template/summary:
+ *   get:
+ *     summary: Get summary of all questionnaire templates
+ *     description: >
+ *       Returns a list of all questionnaire templates with statistics about their responses.
+ *       For each template, includes total responses, completed responses, and incomplete responses.
+ *     tags:
+ *       - Template
+ *     responses:
+ *       200:
+ *         description: Successfully retrieved templates summary
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   id:
+ *                     type: string
+ *                     example: "66d97b7ef12d0d3a92d3e9d2"
+ *                   name:
+ *                     type: string
+ *                     example: "Customer Satisfaction Survey"
+ *                   responses:
+ *                     type: integer
+ *                     example: 42
+ *                   complete:
+ *                     type: integer
+ *                     example: 28
+ *                   incomplete:
+ *                     type: integer
+ *                     example: 14
+ *       500:
+ *         description: Server error occurred while fetching templates summary
+ */
+export const templatesSummary = asyncHandler(
+  async (req: Request, res: Response) => {
+    const templates = await QuestionnaireTemp.find({}).select("name _id");
+    const summary = [];
+    for (const temp of templates) {
+      let obj = {
+        id: temp.id,
+        name: temp.name,
+        responses: 0,
+        complete: 0,
+        incomplete: 0
+      };
+      let count = await Questionnaire.countDocuments({ templateId: temp.id });
+      obj.responses = count;
+      let completeCount = await Questionnaire.countDocuments({
+        templateId: temp.id,
+        isComplete: true
+      });
+      obj.complete = completeCount;
+      obj.incomplete = count - completeCount;
+      summary.push(obj);
+    }
+    res.status(200).json(summary);
   }
 );

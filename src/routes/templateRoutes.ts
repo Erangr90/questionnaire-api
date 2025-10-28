@@ -7,11 +7,13 @@ import {
   deleteTemplate,
   searchByName,
   getTemplatesByUser,
-  updateTempName
+  updateTempName,
+  templatesSummary
 } from "../controllers/templateController";
 
 const router = express.Router();
 
+router.route("/summary").get(protect, superAdmin, templatesSummary);
 router.route("/user").get(protect, admin, getTemplatesByUser);
 router.route("/search").get(protect, superAdmin, searchByName);
 router.route("/").post(protect, admin, createTemplate);
