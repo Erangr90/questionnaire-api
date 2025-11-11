@@ -798,3 +798,47 @@ export const templatesSummary = asyncHandler(
     res.status(200).json(summary);
   }
 );
+
+/**
+ * @swagger
+ * /api/template/summary/{templateId}:
+ *   get:
+ *     summary: Get summary of questionnaire responses for a single template
+ *     tags:
+ *       - Template
+ *     description: |
+ *       Returns all questionnaire responses for a given template ID.
+ *       If no responses are found, returns an error message.
+ *     parameters:
+ *       - in: path
+ *         name: templateId
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The ID of the template to get responses for.
+ *     responses:
+ *       200:
+ *         description: Successfully retrieved template responses.
+ *       401:
+ *         description: No responses found for this template
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *             example:
+ *               message: "לא נמצאו תשובות לשאלון זה"
+ */
+export const singleTemplateSummary = asyncHandler(
+  async (req: Request, res: Response) => {
+    const { id } = req.params;
+    console.log(id);
+    const responses = await Questionnaire.find({ templateId: id });
+    if (!responses || responses.length == 0) {
+      res.status(401).json({ message: "לא נמצאו תשובות לשאלון זה" });
+    }
+    res.status(200).json({ responses: responses });
+  }
+);

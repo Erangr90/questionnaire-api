@@ -8,11 +8,13 @@ import {
   searchByName,
   getTemplatesByUser,
   updateTempName,
-  templatesSummary
+  templatesSummary,
+  singleTemplateSummary
 } from "../controllers/templateController";
 
 const router = express.Router();
 
+router.route("/summary/:id").get(protect, admin, singleTemplateSummary);
 router.route("/summary").get(protect, admin, templatesSummary);
 router.route("/user").get(protect, admin, getTemplatesByUser);
 router.route("/search").get(protect, superAdmin, searchByName);
