@@ -1,0 +1,218 @@
+{
+  "filter": "all",
+  "count": 8,
+  "collections": [
+    {
+      "_id": "68a59214d643653ef88a4d87",
+      "name": "שאלון שביעות רצון",
+      "questions": [],
+      "__v": 0
+    },
+    {
+      "_id": "68ab0a775f271c07db1d3321",
+      "name": "תבנית 2",
+      "questions": [],
+      "__v": 0
+    },
+    {
+      "_id": "68ab0c2f5f271c07db1d3328",
+      "name": "תבנית 3",
+      "questions": [
+        {
+          "q": "שאלה 1",
+          "choice": [],
+          "qType": "טקסט",
+          "required": true,
+          "_id": "68ab0c2f5f271c07db1d3329"
+        },
+        {
+          "q": "שאלה 2",
+          "choice": [
+            "אפשרות 1",
+            "אפשרות 4"
+          ],
+          "qType": "בחירה מרובה",
+          "required": true,
+          "_id": "68ab0c2f5f271c07db1d332a"
+        },
+        {
+          "q": "שאלה 3",
+          "choice": [
+            "אפשרות 1",
+            "אפשרות 2",
+            "אפשרות 3"
+          ],
+          "qType": "בחירה יחידה",
+          "required": false,
+          "_id": "68ab0c2f5f271c07db1d332b"
+        },
+        {
+          "q": "שאלה 4",
+          "choice": [],
+          "qType": "מספר",
+          "required": false,
+          "_id": "68ab0c2f5f271c07db1d332c"
+        }
+      ],
+      "__v": 0
+    },
+    {
+      "_id": "68ac48d8110452791e9507a4",
+      "name": "תבנית 4",
+      "questions": [
+        {
+          "q": "שאלה 1",
+          "choice": [],
+          "qType": "טקסט",
+          "required": true,
+          "_id": "68ac48d8110452791e9507a5"
+        },
+        {
+          "q": "שאלה 2",
+          "choice": [
+            "אפשרות 1",
+            "אפשרות 4"
+          ],
+          "qType": "בחירה מרובה",
+          "required": true,
+          "_id": "68ac48d8110452791e9507a6"
+        },
+        {
+          "q": "שאלה 3",
+          "choice": [
+            "אפשרות 1",
+            "אפשרות 2",
+            "אפשרות 3"
+          ],
+          "qType": "בחירה יחידה",
+          "required": false,
+          "_id": "68ac48d8110452791e9507a7"
+        },
+        {
+          "q": "שאלה 4",
+          "choice": [],
+          "qType": "מספר",
+          "required": false,
+          "_id": "68ac48d8110452791e9507a8"
+        }
+      ],
+      "__v": 0
+    },
+    {
+      "_id": "68b55f0ea2a6de8346a439c8",
+      "name": "שאלות 2",
+      "description": "תיאור שאלות 2",
+      "user": "68a1bd0450098ae61b606c9f",
+      "questions": [
+        {
+          "q": "שאלה חדשה 1",
+          "choice": [],
+          "qType": "Text",
+          "required": false,
+          "_id": "68b55f0ea2a6de8346a439c9"
+        },
+        {
+          "q": "שאלה חדשה 2",
+          "choice": [
+            "אפשרות 1",
+            "אפשרות 2"
+          ],
+          "qType": "Multiple",
+          "required": false,
+          "_id": "68b55f0ea2a6de8346a439ca"
+        }
+      ],
+      "size": 2,
+      "__v": 0
+    },
+    {
+      "_id": "68bff82c32b485ff2559b6a6",
+      "name": "שאלות 1",
+      "description": "תיאור שאלות 1",
+      "user": "68a1bd0450098ae61b606c9f",
+      "questions": [
+        {
+          "id": "f982e9a2-b5f9-4935-9680-32a787bdb4fd",
+          "q": "שאלה 1",
+          "choice": [],
+          "qType": "Text",
+          "required": false,
+          "_id": "68bff82c32b485ff2559b6a7"
+        },
+        {
+          "id": "f982e9a2-b5f9-4935-9680-32a787bdb4fd",
+          "q": "שאלה 2",
+          "choice": [
+            "אפשרות 1",
+            "אפשרות 2",
+            "אפשרות 3"
+          ],
+          "qType": "Multiple",
+          "required": false,
+          "_id": "68bff82c32b485ff2559b6a8"
+        },
+        {
+          "id": "f982e9a2-b5f9-4935-9680-32a787bdb4fd",
+          "q": "שאלה 3",
+          "choice": [
+            "אפשרות 1",
+            "אפשרות 2"
+          ],
+          "qType": "Single",
+          "required": false,
+          "_id": "68bff82c32b485ff2559b6a9"
+        },
+        {
+          "id": "f982e9a2-b5f9-4935-9680-32a787bdb4fd",
+          "q": "שאלה 4",
+          "choice": [],
+          "qType": "Number",
+          "required": false,
+          "_id": "68bff82c32b485ff2559b6aa"
+        }
+      ],
+      "size": 4,
+      "__v": 0
+    },
+    {
+      "_id": "68bffd2d32b485ff2559b6d6",
+      "name": "שאלות חדש",
+      "description": "תיאור שאלות 3",
+      "user": "68a1bd0450098ae61b606c9f",
+      "questions": [
+        {
+          "id": "f982e9a2-b5f9-4935-9680-32a787bdb4fd",
+          "q": "שאלה 1",
+          "choice": [],
+          "qType": "Text",
+          "required": false,
+          "_id": "68bffd2d32b485ff2559b6d7"
+        },
+        {
+          "id": "f982e9a2-b5f9-4935-9680-32a787bdb4fd",
+          "q": "שאלה 2",
+          "choice": [],
+          "qType": "Multiple",
+          "required": false,
+          "_id": "68bffd2d32b485ff2559b6d8"
+        }
+      ],
+      "size": 2,
+      "__v": 0
+    },
+    {
+      "_id": "68bffd7432b485ff2559b6e1",
+      "name": "שאלות 4",
+      "description": "",
+      "user": "68a1bd0450098ae61b606c9f",
+      "questions": [],
+      "size": 0,
+      "__v": 0
+    }
+  ],
+  "exportedAt": "2025-09-25T09:41:18.769Z",
+  "source": {
+    "mongoUri": "mongodb://localhost:27017",
+    "dbName": "question-dev"
+  }
+}

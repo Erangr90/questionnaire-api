@@ -1,0 +1,32 @@
+  on:
+    workflow_dispatch:
+    push:
+      branches: [main]
+
+  jobs:
+    deploy-demo:
+      runs-on: ubuntu-latest        # GitHub-hosted runner
+      environment: demo             # uses your Environment + its secrets
+      env:
+        MONGO_URI: ${{ secrets.MONGO_URI }}          # set in Settings > Environments > demo
+        VITE_API_BASE_URL: ${{ secrets.VITE_API_BASE_URL }}  # if frontend needs it
+      steps:
+        - uses: actions/checkout@v4
+        - uses: actions/setup-node@v4
+          with:
+            node-version: 20
+            cache: npm
+            cache-dependency-path: questionnaire-api/package-lock.json
+        - name: Install & test backend
+          working-directory: questionnaire-api
+          run: |
+            npm ci
+            npm test -- --runInBand
+        - name: Build backend
+          working-directory: questionnaire-api
+          run: npm run build
+        - name: Deploy backend
+          working-directory: questionnaire-api
+          run: |
+            # Replace with your real deploy (ssh/rsync/render/heroku/etc.)
+            echo "Deploying with MONGO_URI=${MONGO_URI}"

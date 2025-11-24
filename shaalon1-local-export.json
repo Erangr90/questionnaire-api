@@ -1,0 +1,102 @@
+{
+  "template": {
+    "_id": "68a1bf9450098ae61b606cb2",
+    "name": "שאלון 1",
+    "user": "68a1bd0450098ae61b606c9f",
+    "categories": [
+      {
+        "name": "קטגוריה א",
+        "questions": [],
+        "subCategories": [
+          {
+            "name": "תת\"ק 2",
+            "questions": [],
+            "topics": [
+              {
+                "name": "נושא ב",
+                "questions": [],
+                "_id": "68d505b87ddf40e205461db4"
+              },
+              {
+                "name": "נושא גd",
+                "questions": [],
+                "_id": "68d505b87ddf40e205461db5"
+              }
+            ],
+            "_id": "68d505b87ddf40e205461db3"
+          },
+          {
+            "name": "תת\"ק 33333",
+            "questions": [],
+            "topics": [],
+            "_id": "68d505b87ddf40e205461db6"
+          }
+        ],
+        "_id": "68d505b87ddf40e205461db2"
+      },
+      {
+        "name": "קטגוריה ג",
+        "questions": [],
+        "subCategories": [
+          {
+            "name": "תת\"ק 1",
+            "questions": [],
+            "topics": [],
+            "_id": "68d505b87ddf40e205461db8"
+          }
+        ],
+        "_id": "68d505b87ddf40e205461db7"
+      },
+      {
+        "name": "קטגוריה ד",
+        "questions": [],
+        "subCategories": [
+          {
+            "name": "תת\"ק 1",
+            "questions": [],
+            "topics": [
+              {
+                "name": "נושא א",
+                "questions": [],
+                "_id": "68d505b87ddf40e205461dbb"
+              },
+              {
+                "name": "נושא ב",
+                "questions": [],
+                "_id": "68d505b87ddf40e205461dbc"
+              }
+            ],
+            "_id": "68d505b87ddf40e205461dba"
+          },
+          {
+            "name": "תת\"ק 2",
+            "questions": [],
+            "topics": [],
+            "_id": "68d505b87ddf40e205461dbd"
+          }
+        ],
+        "_id": "68d505b87ddf40e205461db9"
+      },
+      {
+        "name": "קטגוריה ה",
+        "questions": [],
+        "subCategories": [],
+        "_id": "68d505b87ddf40e205461dbe"
+      }
+    ],
+    "createdAt": "2025-08-17T11:40:04.868Z",
+    "updatedAt": "2025-09-25T09:04:56.092Z",
+    "__v": 70
+  },
+  "questionCollections": [],
+  "summary": {
+    "templateId": "68a1bf9450098ae61b606cb2",
+    "questionCollectionCount": 0,
+    "questionCollectionIds": []
+  },
+  "exportedAt": "2025-09-25T09:37:10.502Z",
+  "source": {
+    "mongoUri": "mongodb://localhost:27017",
+    "dbName": "question-dev"
+  }
+}
